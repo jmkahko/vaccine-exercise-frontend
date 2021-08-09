@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="howManyVaccinesAreLeftToUse">
+    <div *ngIf="paivitysAlkoi" class="alert alert-warning">
+      <strong>Odota!</strong> Tietojen päivitys alkoi
+    </div>
+    <div *ngIf="paivitysValmistui" class="alert alert-success">
+      <strong>Valmis!</strong> Tiedot päivitetty
+    </div>
+    <div class="input-group mb-3">
+      <p>Jos rajausta ei syötetä, rajausarvona käytetään {{paiva | date: 'd.M.YYYY H:mm'}}</p>
+    </div>
+
+    <div class="input-group mb-3">
+      <form #f="ngForm" (ngSubmit)="howManyVaccinesAreLeftToUse(f)" novalidate>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">Alkuaika</span>
+          </div>
+          <input type=datetime-local class="form-control" name="date" ngModel required>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Näytä</button>
+      </form>
+    </div>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Rokote</th>
+          <th scope="col">Pulloja</th>
+          <th scope="col">Rokotteita</th>
+          <th scope="col">Käytetyt rokotteet</th>
+          <th scope="col">Rokotteita jäljellä</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let vo of manyProducer">
+          <td>{{vo._id.rokote}}</td>
+          <td>{{vo.pullojaYhteensa}}</td>
+          <td>{{vo.rokotteitaYhteensa}}</td>
+          <td>{{vo.rokotteetKaytetyt}}</td>
+          <td>{{vo.rokotteitaJaljella}}</td>
+        </tr>
+        <tr>
+          <th scope="col">Yhteensä</th>
+          <th scope="col">{{pullojaYhteensaKaikki}}</th>
+          <th scope="col">{{rokotteitaYhteensaKaikki}}</th>
+          <th scope="col">{{rokotteetKaytetytKaikki}}</th>
+          <th scope="col">{{rokotteitaJaljellaKaikki}}</th>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

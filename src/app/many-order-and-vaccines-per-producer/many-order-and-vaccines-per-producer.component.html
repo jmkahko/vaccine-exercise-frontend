@@ -1,0 +1,48 @@
+<div class="container">
+    <div class="manyOrderAndVaccinesPerProducer">
+        <div class="input-group mb-3">
+            <p>Jos rajausta ei syötetä, rajausarvoina käytetään 1.1.2021 00.00 ja {{paiva | date: 'd.M.YYYY H:mm'}}</p>
+        </div>
+        <div class="input-group mb-3">
+            <form #f="ngForm" (ngSubmit)="manyOrderAndVaccinesPerProducer(f)" novalidate>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">Alkuaika</span>
+                    </div>
+                    <input type=datetime-local class="form-control" name="dateStart" ngModel required>
+                </div>
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">Loppuaika</span>
+                    </div>
+                    <input type=datetime-local class="form-control" name="dateEnd" ngModel required>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Näytä</button>
+            </form>
+        </div>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Rokote</th>
+                    <th scope="col">Tilauksia</th>
+                    <th scope="col">Rokotteita</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let vo of manyProducer">
+                    <td>{{vo._id.rokote}}</td>
+                    <td>{{vo.tilauksia}}</td>
+                    <td>{{vo.rokotteita}}</td>
+                </tr>
+                <tr>
+                    <th scope="col">Yhteensä</th>
+                    <th scope="col">{{order}}</th>
+                    <th scope="col">{{vaccine}}</th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
