@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { EtusivuComponent } from './etusivu/etusivu.component';
 import { HowManyBottlesExpiredComponent } from './how-many-bottles-expired/how-many-bottles-expired.component';
+import { HowManyGenderVaccinationsComponent } from './how-many-gender-vaccinations/how-many-gender-vaccinations.component';
 import { HowManyOrderAndVaccinesComponent } from './how-many-order-and-vaccines/how-many-order-and-vaccines.component';
 import { HowManyVaccinationsComponent } from './how-many-vaccinations/how-many-vaccinations.component';
 import { HowManyVaccinesAreLeftToUseComponent } from './how-many-vaccines-are-left-to-use/how-many-vaccines-are-left-to-use.component';
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'howManyVaccinesExpired', component: HowManyVaccinesExpiredComponent },
   { path: 'howManyVaccinesAreLeftToUse', component: HowManyVaccinesAreLeftToUseComponent },
   { path: 'howManyVaccinesExpireNext10Days', component: HowManyVaccinesExpireNext10DaysComponent },
+  { path: 'howManyGenderVaccinations', component: HowManyGenderVaccinationsComponent },
   { path: 'etusivu', component: EtusivuComponent },
   { path: '', redirectTo: '/etusivu', pathMatch: 'full' },
 ];

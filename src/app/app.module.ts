@@ -15,6 +15,7 @@ import { HowManyVaccinesExpiredComponent } from './how-many-vaccines-expired/how
 import { HowManyVaccinesAreLeftToUseComponent } from './how-many-vaccines-are-left-to-use/how-many-vaccines-are-left-to-use.component';
 import { HowManyVaccinesExpireNext10DaysComponent } from './how-many-vaccines-expire-next10-days/how-many-vaccines-expire-next10-days.component';
 import { FooterComponent } from './footer/footer.component';
+import { HowManyGenderVaccinationsComponent } from './how-many-gender-vaccinations/how-many-gender-vaccinations.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { FooterComponent } from './footer/footer.component';
     HowManyVaccinesExpiredComponent,
     HowManyVaccinesAreLeftToUseComponent,
     HowManyVaccinesExpireNext10DaysComponent,
-    FooterComponent
+    FooterComponent,
+    HowManyGenderVaccinationsComponent
   ],
   imports: [
     BrowserModule,

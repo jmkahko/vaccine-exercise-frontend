@@ -67,4 +67,11 @@ export class VaccineService {
       .pipe(catchError(this.handleError));
   }
 
+  // Miten paljon rokotettu henkilöiltä eri sukupuolen mukaan
+  howManyGenderVaccinations(date:string): Observable<any[]> {
+    return this.http
+      .get<any[]>(`${this.apiUrl}/howManyGenderVaccinations/${date}`)
+      .pipe(catchError(this.handleError));
+  }
+
 }
