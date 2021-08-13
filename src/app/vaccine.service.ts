@@ -74,4 +74,21 @@ export class VaccineService {
       .pipe(catchError(this.handleError));
   }
 
+  // Miten paljon sairaaloissa on rokotettu sukupuolittain milläkin rokotteella
+  howManyGenderVaccinationsPerHealth(date:string): Observable<any[]> {
+    return this.http
+      .get<any[]>(`${this.apiUrl}/howManyGenderVaccinationsPerHealth/${date}`)
+      .pipe(catchError(this.handleError));
+  }
+
+  // Miten paljon mitäkin rokotteita on sairaaloissa jäljellä ja miten paljon on käytetty
+  howManyVaccinesAreLeftToUsePerHealth(date:string): Observable<any[]> {
+    return this.http
+      .get<any[]>(`${this.apiUrl}/howManyVaccinesAreLeftToUsePerHealth/${date}`)
+      .pipe(catchError(this.handleError));
+  }
+
 }
+
+
+

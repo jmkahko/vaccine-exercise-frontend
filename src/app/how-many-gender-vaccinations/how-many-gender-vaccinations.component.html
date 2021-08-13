@@ -1,41 +1,41 @@
 <div class="container">
-    <div class="howManyGenderVaccinations">
-      <div class="input-group mb-3">
-        <p>Jos rajausta ei syötetä, rajausarvona käytetään {{paiva | date: 'd.M.YYYY H:mm'}}</p>
-      </div>
-  
-      <div class="input-group mb-3">
-        <form #f="ngForm" (ngSubmit)="howManyGenderVaccinations(f)" novalidate>
-          <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <span class="input-group-text" id="basic-addon1">Alkuaika</span>
-            </div>
-            <input type=datetime-local class="form-control" name="date" ngModel required>
-          </div>
-  
-          <button type="submit" class="btn btn-primary">Näytä</button>
-        </form>
-      </div>
-  
-      <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">Sukupuoli</th>
-            <th scope="col">Määrä</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let g of gender">
-            <td *ngIf='g._id.sukupuoli ==="nonbinary"'>muu</td>
-            <td *ngIf='g._id.sukupuoli ==="female"'>nainen</td>
-            <td *ngIf='g._id.sukupuoli ==="male"'>mies</td>
-            <td>{{g.count}}</td>
-          </tr>
-          <tr>
-            <th scope="col">Yhteensä</th>
-            <th scope="col">{{yhteensa}}</th>
-          </tr>
-        </tbody>
-      </table>
+  <div class="howManyGenderVaccinations">
+    <div class="input-group mb-3">
+      <p>Jos rajausta ei syötetä, rajausarvona käytetään {{paiva | date: 'd.M.YYYY H:mm'}}</p>
     </div>
+
+    <div class="input-group mb-3">
+      <form #f="ngForm" (ngSubmit)="howManyGenderVaccinations(f)" novalidate>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">Alkuaika</span>
+          </div>
+          <input type=datetime-local class="form-control" name="date" ngModel required>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Näytä</button>
+      </form>
+    </div>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Sukupuoli</th>
+          <th scope="col">Määrä</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let g of gender">
+          <td *ngIf='g._id.sukupuoli ==="nonbinary"'>muu</td>
+          <td *ngIf='g._id.sukupuoli ==="female"'>nainen</td>
+          <td *ngIf='g._id.sukupuoli ==="male"'>mies</td>
+          <td>{{g.count}}</td>
+        </tr>
+        <tr>
+          <th scope="col">Yhteensä</th>
+          <th scope="col">{{yhteensa}}</th>
+        </tr>
+      </tbody>
+    </table>
   </div>
+</div>

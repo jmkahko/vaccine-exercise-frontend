@@ -1,0 +1,130 @@
+<div class="container">
+    <div class="howManyVaccinesAreLeftToUsePerHealth">
+      <div *ngIf="paivitysAlkoi" class="alert alert-warning">
+        <strong>Odota!</strong> Tietojen päivitys alkoi
+      </div>
+      <div *ngIf="paivitysValmistui" class="alert alert-success">
+        <strong>Valmis!</strong> Tiedot päivitetty
+      </div>
+      <div class="input-group mb-3">
+        <p>Jos rajausta ei syötetä, rajausarvona käytetään {{paiva | date: 'd.M.YYYY H:mm'}}</p>
+      </div>
+  
+      <div class="input-group mb-3">
+        <form #f="ngForm" (ngSubmit)="howManyVaccinesAreLeftToUsePerHealth(f)" novalidate>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1">Alkuaika</span>
+            </div>
+            <input type=datetime-local class="form-control" name="date" ngModel required>
+          </div>
+  
+          <button type="submit" class="btn btn-primary">Näytä</button>
+        </form>
+      </div>
+  
+      <h3>TAYS:in rokotetilanne</h3>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Rokote</th>
+            <th scope="col">Tulleet</th>
+            <th scope="col">Käytetyt</th>
+            <th scope="col">Jäljellä olevat</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let vh of vaccineHealth">
+            <td *ngIf='vh._id.sairaala ==="TAYS"'>{{vh._id.rokote}}</td>
+            <td *ngIf='vh._id.sairaala ==="TAYS"'>{{vh.rokotteitaYhteensa}}</td>
+            <td *ngIf='vh._id.sairaala ==="TAYS"'>{{vh.rokotteetKaytetyt}}</td>
+            <td *ngIf='vh._id.sairaala ==="TAYS"'>{{vh.rokotteitaJaljella}}</td>
+          </tr>
+        </tbody>
+      </table>
+
+
+      <h3>HYKS:in rokotetilanne</h3>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Rokote</th>
+            <th scope="col">Tulleet</th>
+            <th scope="col">Käytetyt</th>
+            <th scope="col">Jäljellä olevat</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let vh of vaccineHealth">
+            <td *ngIf='vh._id.sairaala ==="HYKS"'>{{vh._id.rokote}}</td>
+            <td *ngIf='vh._id.sairaala ==="HYKS"'>{{vh.rokotteitaYhteensa}}</td>
+            <td *ngIf='vh._id.sairaala ==="HYKS"'>{{vh.rokotteetKaytetyt}}</td>
+            <td *ngIf='vh._id.sairaala ==="HYKS"'>{{vh.rokotteitaJaljella}}</td>
+          </tr>
+        </tbody>
+      </table>
+
+
+      <h3>KYS:in rokotetilanne</h3>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Rokote</th>
+            <th scope="col">Tulleet</th>
+            <th scope="col">Käytetyt</th>
+            <th scope="col">Jäljellä olevat</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let vh of vaccineHealth">
+            <td *ngIf='vh._id.sairaala ==="KYS"'>{{vh._id.rokote}}</td>
+            <td *ngIf='vh._id.sairaala ==="KYS"'>{{vh.rokotteitaYhteensa}}</td>
+            <td *ngIf='vh._id.sairaala ==="KYS"'>{{vh.rokotteetKaytetyt}}</td>
+            <td *ngIf='vh._id.sairaala ==="KYS"'>{{vh.rokotteitaJaljella}}</td>
+          </tr>
+        </tbody>
+      </table>
+
+
+      <h3>OYS:in rokotetilanne</h3>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Rokote</th>
+            <th scope="col">Tulleet</th>
+            <th scope="col">Käytetyt</th>
+            <th scope="col">Jäljellä olevat</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let vh of vaccineHealth">
+            <td *ngIf='vh._id.sairaala ==="OYS"'>{{vh._id.rokote}}</td>
+            <td *ngIf='vh._id.sairaala ==="OYS"'>{{vh.rokotteitaYhteensa}}</td>
+            <td *ngIf='vh._id.sairaala ==="OYS"'>{{vh.rokotteetKaytetyt}}</td>
+            <td *ngIf='vh._id.sairaala ==="OYS"'>{{vh.rokotteitaJaljella}}</td>
+          </tr>
+        </tbody>
+      </table>
+
+
+      <h3>TYKS:in rokotetilanne</h3>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Rokote</th>
+            <th scope="col">Tulleet</th>
+            <th scope="col">Käytetyt</th>
+            <th scope="col">Jäljellä olevat</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let vh of vaccineHealth">
+            <td *ngIf='vh._id.sairaala ==="TYKS"'>{{vh._id.rokote}}</td>
+            <td *ngIf='vh._id.sairaala ==="TYKS"'>{{vh.rokotteitaYhteensa}}</td>
+            <td *ngIf='vh._id.sairaala ==="TYKS"'>{{vh.rokotteetKaytetyt}}</td>
+            <td *ngIf='vh._id.sairaala ==="TYKS"'>{{vh.rokotteitaJaljella}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
